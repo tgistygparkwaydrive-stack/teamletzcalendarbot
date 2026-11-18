@@ -1,23 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-TEAM LËTZEBUERG – WÖCHENTLICHER 24/7 YU-GI-OH! TURNIER-SCRAPER
-Läuft kostenlos über GitHub Actions (jede Woche automatisch) und schreibt direkt
-in eure gemeinsame Cloud-Datenbank (Firebase Realtime DB + optional Supabase).
-
-ECHTE QUELLEN & REGELN:
-1. Mana Temple Luxembourg (251 Rue de Beggen, L-1221 Luxembourg):
-   - Jeden Dienstag (19:30 Uhr) & jeden Donnerstag (19:30 Uhr) Yu-Gi-Oh! Advanced Local (10 €)
-   - Plus Spezial-Events direkt von https://www.manatemple.com/
-2. Offizielle Konami EU & Breakflip Ticketing Events:
-   - YCS Bologna: 04.–06. Dezember 2026 (inkl. YCS Genesys Bologna)
-   - YCS Utrecht: 05.–07. Februar 2027 (inkl. YCS Genesys Utrecht, 285 km ab Luxemburg)
-   - Offizielle Konami OPENs & Regionals <= 500 km ab Luxemburg (z.B. UK OPEN, Swiss OPEN)
-   - 2027 European WCQ (Europameisterschaft)
-3. Automatische Bereinigung:
-   - Löscht alle alten erfundenen Platzhalter (wie das falsche "YCS Paris 2027" etc.) restlos aus Firebase!
-"""
-
 import json
 import math
 import os
