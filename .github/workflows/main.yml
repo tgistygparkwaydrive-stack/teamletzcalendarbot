@@ -5,6 +5,9 @@ on:
     - cron: '0 5 * * 1'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   scrape-and-sync-db:
     runs-on: ubuntu-latest
@@ -17,6 +20,11 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install Playwright & Headless Chromium (for Live Neuron / KCGN & Konami EU Tables)
+        run: |
+          pip install playwright
+          playwright install --with-deps chromium
+
       - name: Run Tournament Scraper & Push to Database
         env:
           FIREBASE_DB_URL: "https://teamletz-default-rtdb.firebaseio.com"
@@ -25,3 +33,11 @@ jobs:
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: |
           python tournament_scraper.py
+
+      - name: Keep GitHub Cron Alive Forever (Prevent 60-Day Pause)
+        run: |
+          date -u +"%Y-%m-%d %H:%M:%S UTC" > last_sync.txt
+          git config user.name "teamletz-bot"
+          git config user.email "bot@teamletz.lu"
+          git add last_sync.txt
+          git commit -m "Auto-Sync Kalender Keep-Alive" && git push || true
