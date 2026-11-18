@@ -20,6 +20,8 @@ LUX_LON = 6.1319
 
 # Alle früheren erfundenen Platzhalter-IDs, die beim Lauf aus der Datenbank gelöscht werden
 BANNED_FAKE_IDS = {
+    "ev_ycs_auto_vip",
+    "ev_ots_lux_nov26",
     "ev_ots_lux_nov26",
     "ev_reg_trier_dec26",
     "ev_reg_metz_dec26",
